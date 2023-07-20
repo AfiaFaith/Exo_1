@@ -2,6 +2,7 @@ import os
 
 def create_project_structure():
     project_path = 'data_analysis_project'
+    remote_repository_url = 'https://github.com/AfiaFaith/Exo_1.git'
 
     # Check if the project directory already exists
     if not os.path.exists(project_path):
@@ -28,6 +29,12 @@ def create_project_structure():
 
         # Faire un commit
         os.system('git commit -m "Initial commit"')
+
+        # Lier le dépôt local au dépôt distant
+        os.system(f'git remote add origin {remote_repository_url}')
+
+        # Pousser les changements vers le dépôt distant
+        os.system('git push -u origin master')
     else:
         print("The project directory already exists. Please choose a different name or delete the existing directory.")
 
